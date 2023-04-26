@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu thông tin</title>
+    <link rel="stylesheet" href="css/trangchu.css">
+    <link rel="stylesheet" href="font-icon/fontawesome-free-6.3.0-web/css/all.min.css">
+</head>
+
+<body>
+    <div class="wapper">
+        <header class="header-main">
+            <img src="img/logo-1-02.png" alt="">
+            <h1>HỌC LẬP TRÌNH ĐỂ ĐI LÀM </h1>
+            <div class="abc">
+                <form action="">
+                    <input type="search" placeholder="Tìm kiếm khóa học, bài viết, video ...">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </form>
+            </div>
+
+            <button class="dn">
+                <a href="dangnhap.html">Đăng nhập</a>
+            </button>
+            <button class="dn1">
+                <a href="#">Đăng kí</a>
+            </button>
+
+        </header>
+        <div class="content-main">
+            <div class="content-left">
+                <div class="chua">
+                    <ul>
+                        <li>
+                            <a href="trangchu.html">
+                                <div><i class="fa-solid fa-house"></i></div>
+                                <div><span>Home</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div><i class="fa-solid fa-road"></i></div>
+                                <div><span>Lộ trình</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div><i class="fa-brands fa-blogger"></i></div>
+                                <div><span>Blog</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lienhe.html">
+                                <div><i class="fa-solid fa-phone"></i></div>
+                                <div><span>Liên hệ</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="dathang.html">
+                                <div><i class="fa-solid fa-cart-shopping"></i></div>
+                                <div><span>Đặt hàng</span></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="bannee">
+                    <img src="img/banner1.png" alt="" id="banner">
+                    <button class="_next" onclick="_pre()"><i class="fa-solid fa-chevron-right"></i></button>
+                    <button class="_pre" onclick="_next()"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="cham"> <button class="cham_tron" onclick="kich('0')"></button><button class="cham_tron" onclick="kich('1')"></button><button
+                            class="cham_tron" onclick="kich('2')"></button></div>
+                </div>
+                <div class="pro">
+                    <div class="pro-left">
+                        <h2>Có phải bạn đã từng nghĩ rằng: </h2>
+                        <ul>
+                            <li>
+                                <p>Lập trình viên là một nghề rất xa vời?</p>
+                            </li>
+                            <li>
+                                <p>Rất khó có thể học được nghề lập trình</p>
+                            </li>
+                            <li>
+                                <p>CÔng việc lập trình chỉ dành cho những người rất giỏi toán.</p>
+                            </li>
+                            <li>
+                                <p>Phải rất am hiểu về công nghệ thì mới theo được nghề lập trình.</p>
+                            </li>
+                        </ul>
+                        <h2>Bộ khóa học lập trình wep giúp bạn đi làm chỉ sau 3-5 tháng.</h2>
+                        <p>Chúng tôi giúp bạn học lập trình web đi làm chỉ từ sau 3 đến 5 tháng thay vì học mò mẫm không
+                            có hiệu
+                            quả. Bạn được hỗ trợ 24/24 từ người dướng dẫn, học bất kỳ lúc nào, học bất kỳ đâu. Hiện đã
+                            có hơn 3.368
+                            người theo học và có kết quả tốt, bây giờ đến lượt bạn!</p>
+                        <a href="#"><button>Xem lộ trình học</button></a>
+                    </div>
+                    <div class="pro-right">
+                        <img src="img/hoclaptrinh.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let banner = document.getElementById('banner');
+        let arrBanner = ['img/banner1.png', 'img/banner2.png', 'img/banner3.jpg'];
+        let arrCham = document.getElementsByClassName('cham_tron')
+        let i = 0;
+        let _next = () => {
+            i++;
+            if (i > 2) {
+                i = 0;
+            }
+            banner.src = arrBanner[i];
+        }
+        let _pre = () => {
+            i--;
+            if (i < 0) {
+                i = 2;
+            }
+            banner.src = arrBanner[i];
+        }
+        setInterval("_next()", 4000);
+        arrCham[i].style.backgroundColor = 'red';
+        setInterval(()=>{
+            for(let i = 0;i<arrCham.length;i++){
+                if(arrCham[i].style.backgroundColor == 'red'){
+                    arrCham[i].style.backgroundColor = 'white';
+                }             
+            }
+            arrCham[i].style.backgroundColor = 'red';
+        },4000);
+        function kich(a){
+            for(let i =0;i<arrCham.length;i++){
+                if(arrCham[i].style.backgroundColor == 'red'){
+                    arrCham[i].style.backgroundColor = 'white';
+                }
+            }
+            arrCham[a].style.backgroundColor = 'red';
+            banner.src = arrBanner[a];
+            i = a;
+        }
+    </script>
+</body>
+
+</html>
